@@ -1,0 +1,14 @@
+.list-of-repos{
+	width: 39.75rem;
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+	background-color: var(--background);
+}
+
+.repos-container{
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+}
