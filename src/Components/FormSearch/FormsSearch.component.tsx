@@ -1,8 +1,9 @@
 import styles from './FormSearch.module.css'
+import {FC} from "react";
 interface ISearchForm {
-	children: React.ReactNode,
+	children?: React.ReactNode,
 }
-const SearchForm = ({ children }: ISearchForm) => {
+const SearchForm: FC = ({ children }: ISearchForm) => {
 
 	return(
 		<form className={styles['search-form']}>

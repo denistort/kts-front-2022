@@ -6,7 +6,7 @@ import SearchInput from '../UI/Search-input/Search-input.component';
 import { mimickData } from './MimickData';
 import styles from './Repository-list.module.css';
 const RepositoryList = () => {
-	const [data, setData] = useState(mimickData)
+	const [data] = useState(mimickData)
 	return(
 		<div className={styles['list-of-repos']}>
 			<SearchForm>

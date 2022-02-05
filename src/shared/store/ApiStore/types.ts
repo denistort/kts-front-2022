@@ -1,45 +1,51 @@
-// // Перечисление методов HTTP-запроса
+// Перечисление методов HTTP-запроса
 // enum HTTPMethod {
-//     // TODO: заполнить
+//   'GET' = 'GET',
+// 	'POST' = 'POST',
 // }
 
-// // Параметры запроса
-// export type RequestParams<ReqT> = {
-//     method: HTTPMethod; // Метод запроса, GET или POST
-//     endpoint: string; // API-endpoint, на который делается запрос
-//     headers: Record<string, string>; // Объект с передаваемыми HTTP-заголовками
+type HTTPMethod = 'GET' | 'POST'
 
-//     /**
-//      * Объект с данными запроса.
-//      * - Для GET-запроса данные превращаются в query-строку и добавляются в endpoint
-//      * - Для POST-запроса данные преобразуются к формату JSON и добавляются в тело запроса (необязательное требование)
-//      */
-//     data: ReqT;
-// }
+// Параметры запроса
+export type RequestParams<ReqT> = {
+    method: HTTPMethod; // Метод запроса, GET или POST
+    endpoint: string; // API-endpoint, на который делается запрос
+    headers: Record<string, string>; // Объект с передаваемыми HTTP-заголовками
 
-// // Перечисление статусов ответа
-// enum StatusHTTP {
-//     // TODO: заполнить
-// }
+    /**
+     * Объект с данными запроса.
+     * - Для GET-запроса данные превращаются в query-строку и добавляются в endpoint
+     * - Для POST-запроса данные преобразуются к формату JSON и добавляются в тело запроса (необязательное требование)
+     */
+    data: ReqT;
+}
 
-// // Ответ API
-// export type ApiResponse<SuccessT, ErrorT> =
-//     | {
-//     success: true;
-//     data: SuccessT;
-//     status: StatusHTTP;
-// }
-//     | {
-//     success: false;
-//     data: ErrorT;
-//     status: StatusHTTP;
-// };
+// Перечисление статусов ответа
+enum StatusHTTP {
+	OK = 200,
+	NOT_FOUND = 404,
+	MOVED_PERMAMENTLY = 301,
+	FORBIDDEN = 403
+}
 
-// // Интерфейс для класса, с помощью которого можно делать запросы к API
-// export interface IApiStore {
-//     // базовый url для выполнения запросов. TODO: указать url GitHub API в классе ApiStore
-//     readonly baseUrl: string;
+// Ответ API
+export type ApiResponse<SuccessT, ErrorT> =
+    | {
+    success: true;
+    data: SuccessT;
+    status: StatusHTTP;
+}
+    | {
+    success: false;
+    data: ErrorT;
+    status: StatusHTTP;
+};
 
-//     // Метод, с помощью которого делается запрос. TODO: реализовать в классе ApiStore
-//     request<SuccessT, ErrorT = any, ReqT = {}>(params: RequestParams<ReqT>): Promise<ApiResponse<SuccessT, ErrorT>>
-// }
+// Интерфейс для класса, с помощью которого можно делать запросы к API
+export interface IApiStore {
+    // базовый url для выполнения запросов. TODO: указать url GitHub API в классе ApiStore
+    readonly baseUrl: string;
+
+    // Метод, с помощью которого делается запрос. TODO: реализовать в классе ApiStore
+    request<SuccessT, ErrorT = any, ReqT = {}>(params: RequestParams<ReqT>): Promise<ApiResponse<SuccessT, ErrorT>>
+}
