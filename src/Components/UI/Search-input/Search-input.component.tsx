@@ -1,10 +1,7 @@
-import  React from "react";
 import  styles  from './Search-input.module.css';
+import { SearchInputProps } from './types';
 
-interface ISearchInput {
-	placeholder: string;
-}
-const SearchInput = ({placeholder}: ISearchInput) => {
+const SearchInput = ({ placeholder }: SearchInputProps) => {
 
 	return(
 		<input 

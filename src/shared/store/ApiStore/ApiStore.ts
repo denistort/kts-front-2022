@@ -2,8 +2,6 @@ import {ApiResponse, IApiStore, RequestParams} from './types';
 
 export default class ApiStore implements IApiStore {
 	constructor(readonly baseUrl: string) {
-        // TODO: Примите из параметров конструктора baseUrl
-        // и присвойте его в this.baseUrl
 				this.baseUrl = baseUrl;
     }
 

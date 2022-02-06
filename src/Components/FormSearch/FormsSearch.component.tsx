@@ -1,9 +1,8 @@
 import styles from './FormSearch.module.css'
 import {FC} from "react";
-interface ISearchForm {
-	children?: React.ReactNode,
-}
-const SearchForm: FC = ({ children }: ISearchForm) => {
+import { SearchFormProps } from './types';
+
+const SearchForm: FC = ({ children }: SearchFormProps) => {
 
 	return(
 		<form className={styles['search-form']}>

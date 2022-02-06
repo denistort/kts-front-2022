@@ -1,24 +1,15 @@
 import styles from './GitRepoCard.module.css'
-import img from '@/assets/img/Avatar.png'
-import img2 from '@/assets/img/Avatar1.jpg'
-import { useState } from 'react'
-
-interface IGitRepoProps {
-	// avatar: string,
-	title: string,
-	orgLink: string,
-	orgName: string,
-	rating: number,
-	date: string
-}
+import img from '@assets/img/Avatar.png'
+import img2 from '@assets/img/Avatar1.jpg'
+import { GitRepoCardProps } from './types'
 
 
-const GitRepoCard = ({ title, orgLink, orgName, rating, date}: IGitRepoProps) => {
+const GitRepoCard = ({ title, orgLink, orgName, rating, date}: GitRepoCardProps) => {
 	const random = () => Math.floor(Math.random() * 2);
 	return(
-			<div className={styles['git-repo-tile']}>
+		<div className={styles['git-repo-tile']}>
 			<div className={styles['git-repo-tile__avatar']}>
-				<img src={random() ? img : img2} alt="avatar" />
+					<img src={random() ? img : img2} alt="avatar" />
 			</div>
 
 			<div className={styles['git-repo-tile__body-wraper']}>
@@ -35,7 +26,7 @@ const GitRepoCard = ({ title, orgLink, orgName, rating, date}: IGitRepoProps) =>
 					</div>
 
 					<div className={styles['footer-repos__date']}>
-						{date}
+							{date}
 					</div>
 				</div>
 			</div>
