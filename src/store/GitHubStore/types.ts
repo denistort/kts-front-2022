@@ -1,11 +1,4 @@
-// /** Интерфейс класса для работы с GitHub API
-//  * названия getOrganizationReposList
-//  * (а также типов GetOrganizationReposListParams и RepoItem)
-//  * поменяйте в соответствии с выполняемым запросом.
-//  * Или не меняйте, если делаете запрос за списком репоизториев для организации)
-//  * Выберите любой запрос из публичного API GitHub.
-//  */
-enum sort {
+enum Sort {
 	created = 'created',
 	updated = 'updated',
 	pushed = 'pushed',
@@ -16,19 +9,20 @@ export type GetOrganizationReposListParams = {
 	direction?: 'asc' | 'desc',
 	per_page?: number,
 	page?: number,
-	sort?: sort
+	sort?: Sort
 }
 
 export interface RepoItem {
 	name: string,
 	id: string,
-	owner: owner
+	owner: Owner
 }
-interface owner{
+interface Owner{
 	id: string,
 	url: 'string'
 }
 export type ApiResp<T = []> = {}
+
 export interface IGitHubStore {
 	getOrganizationReposList: (params: GetOrganizationReposListParams) => Promise<ApiResp<RepoItem[]>>;
 }
