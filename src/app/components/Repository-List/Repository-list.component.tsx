@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import SearchForm from '@components/FormSearch/FormsSearch.component';
-import GitRepoCard from '@components/Git-repo-card/GitRepoCard.component';
-import SearchButton from '@components/UI/Search-button/Search-button.component';
-import SearchInput from '@components/UI/Search-input/Search-input.component';
+import SearchForm from '@app/components/FormSearch';
+import GitRepoCard from '@app/components/Git-repo-card';
+import SearchButton from '@app/components/UI/Search-button';
+import SearchInput from '@app/components/UI/Search-input';
 import { mimickData } from './MimickData';
 import styles from './Repository-list.module.css';
 

@@ -1,6 +1,5 @@
-import RepositoryList from '@components/Repository-List/Repository-list.component';
 import GitHubStore from '@store/GitHubStore/GitHubStore';
-
+import RepositoryList from '@app/components/Repository-List';
 const gitHubStore = new GitHubStore();
 const EXAMPLE_ORGANIZATION = 'ktsstudio';
 
@@ -13,7 +12,7 @@ gitHubStore.getOrganizationReposList({
 function App() {
   return (
     <div className="App">
-			<RepositoryList />			
+      <RepositoryList />
     </div>
   );
 }
