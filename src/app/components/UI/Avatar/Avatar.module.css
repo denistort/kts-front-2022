@@ -1,0 +1,19 @@
+.img-div {
+  width: 8rem;
+  height: 8rem;
+
+  background-color: #FF5555;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  
+  font-size: 4rem;
+  line-height: 4.7rem;
+  color: #fff;
+  font-family: Roboto;
+  font-weight: 700;
+  text-transform: uppercase;
+}

@@ -1,28 +1,34 @@
 enum Sort {
-	created = 'created',
-	updated = 'updated',
-	pushed = 'pushed',
-	full_name = 'full_name'
+  created = 'created',
+  updated = 'updated',
+  pushed = 'pushed',
+  full_name = 'full_name',
 }
 export type GetOrganizationReposListParams = {
-	org: string,
-	direction?: 'asc' | 'desc',
-	per_page?: number,
-	page?: number,
-	sort?: Sort
-}
+  org: string;
+  direction?: 'asc' | 'desc';
+  per_page?: number;
+  page?: number;
+  sort?: Sort;
+};
 
 export interface RepoItem {
-	name: string,
-	id: string,
-	owner: Owner
+  name: string;
+  updated_at: Date;
+  stargazers_count: number;
+  id: string;
+  owner: Owner;
 }
 interface Owner {
-	id: string,
-	url: 'string'
+  login: string;
+  avatar_url: string;
+  id: string;
+  url: 'string';
 }
-export type ApiResp<T = []> = {}
+export type ApiResp<T = []> = {};
 
 export interface IGitHubStore {
-	getOrganizationReposList: (params: GetOrganizationReposListParams) => Promise<ApiResp<RepoItem[]>>;
+  getOrganizationReposList: (
+    params: GetOrganizationReposListParams
+  ) => Promise<ApiResp<RepoItem[]>>;
 }
