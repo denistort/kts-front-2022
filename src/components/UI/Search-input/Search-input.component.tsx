@@ -1,7 +1,8 @@
-import  styles  from './Search-input.module.css';
+import { JsxElement } from 'typescript';
+import styles from './Search-input.module.css';
 import { SearchInputProps } from './types';
 
-const SearchInput = ({ placeholder }: SearchInputProps) => {
+const SearchInput = ({ placeholder }: SearchInputProps): JsxElement => {
 
 	return(
 		<input 
