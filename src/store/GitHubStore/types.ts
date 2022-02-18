@@ -2,7 +2,7 @@ enum Sort {
 	created = 'created',
 	updated = 'updated',
 	pushed = 'pushed',
-	full_name= 'full_name'
+	full_name = 'full_name'
 }
 export type GetOrganizationReposListParams = {
 	org: string,
@@ -17,7 +17,7 @@ export interface RepoItem {
 	id: string,
 	owner: Owner
 }
-interface Owner{
+interface Owner {
 	id: string,
 	url: 'string'
 }

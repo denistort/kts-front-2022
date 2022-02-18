@@ -8,16 +8,16 @@ import styles from './Repository-list.module.css';
 
 const RepositoryList = () => {
 	const [data] = useState(mimickData)
-	return(
+	return (
 		<div className={styles['list-of-repos']}>
 			<SearchForm>
-				<SearchInput placeholder='Введите название организации'/>
+				<SearchInput placeholder='Введите название организации' />
 				<SearchButton />
 			</SearchForm>
 
 			<div className={styles['repos-container']}>
 				{
-					data.map(({id, ...props}) => (
+					data.map(({ id, ...props }) => (
 						<GitRepoCard
 							key={id}
 							{...props}
