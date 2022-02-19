@@ -1,20 +1,13 @@
-import RepositoryList from '@app/components/Repository-List';
 import GitHubStore from '@store/GitHubStore/GitHubStore';
-const gitHubStore = new GitHubStore();
-const EXAMPLE_ORGANIZATION = 'ktsstudio';
 
-gitHubStore
-  .getOrganizationReposList({
-    org: EXAMPLE_ORGANIZATION,
-  })
-  .then((result) => {
-    console.log(result);
-  });
+import ReposSearchPage from './pages/ReposSearchPage';
+export const gitHubStore = new GitHubStore();
+export const EXAMPLE_ORGANIZATION = 'ktsstudio';
 
 function App() {
   return (
     <div className="App">
-      <RepositoryList />
+      <ReposSearchPage />
     </div>
   );
 }

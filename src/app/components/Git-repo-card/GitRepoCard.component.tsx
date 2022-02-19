@@ -7,7 +7,6 @@ import styles from './GitRepoCard.module.css';
 import { GitRepoCardProps } from './types';
 const GitRepoCard: FC<GitRepoCardProps> = ({
   title,
-  orgLink,
   orgName,
   rating,
   date,
@@ -28,7 +27,7 @@ const GitRepoCard: FC<GitRepoCardProps> = ({
       <div className={styles['git-repo-tile__body-wraper']}>
         <h5 className={styles['git-repo-tile__title']}>{title}</h5>
         <p>
-          <a className={styles['git-repo-tile__org-link']} href={orgLink}>
+          <a className={styles['git-repo-tile__org-link']} href={'wwww'}>
             {orgName}
           </a>
         </p>

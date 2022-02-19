@@ -14,7 +14,7 @@ export type GetOrganizationReposListParams = {
 
 export interface RepoItem {
   name: string;
-  updated_at: Date;
+  updated_at: string;
   stargazers_count: number;
   id: string;
   owner: Owner;
@@ -25,7 +25,7 @@ interface Owner {
   id: string;
   url: 'string';
 }
-export type ApiResp<T = []> = {};
+export type ApiResp<T = []> = any;
 
 export interface IGitHubStore {
   getOrganizationReposList: (

@@ -1,7 +1,6 @@
 import { RepoItem } from '@store/GitHubStore/types';
 
-export interface GitReposListState {
-  currentInputState: string;
-  isLoading: boolean;
+export interface ReposListProps {
   data: RepoItem[] | null;
+  handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }

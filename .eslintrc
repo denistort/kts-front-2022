@@ -6,8 +6,13 @@
   "plugins": [
     "prettier"
   ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
   "rules": {
-    "no-console": "error",
+    // "no-console": "error",
     "prettier/prettier": "error",
     "import/order": [
       "error",
@@ -32,15 +37,6 @@
           "order": "asc",
           "caseInsensitive": true
         }
-      },
-      {
-        "printWidth": 80,
-        "tabWidth": 2,
-        "singleQuote": true,
-        "trailingComma": "es5"
-      },
-      {
-        "endOfLine": "auto"
       }
     ]
   }
