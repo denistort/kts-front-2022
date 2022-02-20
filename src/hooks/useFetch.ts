@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
+import { gitHubStore } from '@app/App';
+
 interface UseStateState {
   data: any | null;
   loading: boolean;
   error: unknown;
 }
-const UseFetch = (fetchingDataFunc: Function) => {
+const useFetchRepos = (whatToFind: string) => {
   const [state, setState] = useState<UseStateState>({
     loading: false,
     data: null,
@@ -15,11 +17,14 @@ const UseFetch = (fetchingDataFunc: Function) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchingDataFunc;
-        setState({ ...state, loading: true });
-        setState({ ...state, loading: false, data: data });
-      } catch (e) {
-        setState({ ...state, loading: false, error: e });
+        setState({ ...state, loading: true});
+        const data = await gitHubStore.getOrganizationReposList({
+          org: whatToFind,
+        });
+        setState({ ...state, data: data, loading: false });
+      } catch (error) {
+        setState({ ...state, error: error, loading: false });
+        console.log(error);
       }
     };
     fetchData();
@@ -27,4 +32,4 @@ const UseFetch = (fetchingDataFunc: Function) => {
   return state;
 };
 
-export default UseFetch;
+export default useFetchRepos;

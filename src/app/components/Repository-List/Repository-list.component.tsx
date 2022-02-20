@@ -17,6 +17,7 @@ const RepositoryList: FC<ReposListProps> = ({ handleClick, data }) => {
               rating={props.stargazers_count}
               date={props.updated_at}
               orgName={props.owner.login}
+              imageUrl={props.owner.avatar_url}
             />
           ))
         : null}

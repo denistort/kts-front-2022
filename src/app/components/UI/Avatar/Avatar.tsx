@@ -6,7 +6,13 @@ const Avatar: FC<AvatarProps> = ({ src, alt, letter, cssClass }) => {
   return (
     <div className={cssClass}>
       {src !== '' && src ? (
-        <img src={src} alt={alt} />
+        <img
+          width={80}
+          height={80}
+          style={{ borderRadius: '50%' }}
+          src={src}
+          alt={alt}
+        />
       ) : (
         <div className={styles['img-div']} role={'img'}>
           {letter}

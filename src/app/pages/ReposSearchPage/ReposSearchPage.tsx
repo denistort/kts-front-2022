@@ -1,4 +1,4 @@
-import { FC, Key, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { EXAMPLE_ORGANIZATION, gitHubStore } from '@app/App';
 import SearchForm from '@app/components/FormSearch';
@@ -7,18 +7,15 @@ import RepositoryList from '@app/components/Repository-List';
 import SearchButton from '@app/components/UI/Search-button';
 import SearchInput from '@app/components/UI/Search-input';
 import SearchIcon from '@app/components/UI/SearchIcon';
-import { WithSpinner } from '@app/components/WithSpinnerHOC/WithSpinnerHoc';
+// import { WithSpinner } from '@app/components/WithSpinnerHOC/WithSpinnerHoc';
 import { ApiResp, RepoItem } from '@store/GitHubStore/types';
 
 import styles from './ReposSearchPage.module.css';
-
-
 
 const ReposSearchPage: FC = () => {
   const [data, setData] = useState<ApiResp<RepoItem[]> | null>(null);
   const [isFetching, setIseFetching] = useState<boolean>(false);
   const [currentInputState, setcurrentInputState] = useState<string>('');
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,13 +41,13 @@ const ReposSearchPage: FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setcurrentInputState(e.target.value);
   };
-  
+
   const handleClickRepoCard = (e: React.MouseEvent<HTMLDivElement>): void => {
     console.log(e.target);
   };
-  const RepositoryListWithSpinner = WithSpinner(
-    <RepositoryList data={data} handleClick={handleClickRepoCard} />
-  );
+  // const RepositoryListWithSpinner = WithSpinner(
+  //   <RepositoryList data={data} handleClick={handleClickRepoCard} />
+  // );
   return (
     <div className={styles['list-of-repos']}>
       <SearchForm>
@@ -65,14 +62,7 @@ const ReposSearchPage: FC = () => {
         </SearchButton>
       </SearchForm>
 
-      <div className={styles['repos-container']}>
-        {/* {data.map(({ id, ...props }) => (
-          <GitRepoCard onClick={handleClickRepoCard} key={id} {...props} />
-        ))} */}
-        {data
-          ? data.map((elem: RepoItem) => <div key={elem.id}>{elem.name}</div>)
-          : null}
-      </div>
+      <RepositoryList handleClick={handleClickRepoCard} data={data} />
     </div>
   );
 };
