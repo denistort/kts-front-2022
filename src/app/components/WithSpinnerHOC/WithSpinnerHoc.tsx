@@ -12,15 +12,6 @@ const Spinner = () => {
     </SpinnerOverlay>
   );
 };
-// export function WithSpinner: <P> =
-//   (WrappedComponent: ComponentType<P>) =>
-//   ({ isLoading, ...otherProps }: P & WithSpinnerProps) => {
-//     return isLoading ? (
-//       <Spinner />
-//     ) : (
-//       <WrappedComponent {...(otherProps as P)} />
-//     );
-//   };
 
 export function WithSpinner<P>(WrappedComponent: ComponentType<P>) {
   return ({ isLoading, ...otherProps }: P & WithSpinnerProps) => {
