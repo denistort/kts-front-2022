@@ -1,1 +1,1 @@
-export { default } from './Repository-list.component'
+export { default } from './Repository-list.component';

@@ -2,14 +2,12 @@ import { FC, useEffect, useState } from 'react';
 
 import { EXAMPLE_ORGANIZATION, gitHubStore } from '@app/App';
 import SearchForm from '@app/components/FormSearch';
-import GitRepoCard from '@app/components/Git-repo-card';
-import RepositoryList from '@app/components/Repository-List';
 import SearchButton from '@app/components/UI/Search-button';
 import SearchInput from '@app/components/UI/Search-input';
 import SearchIcon from '@app/components/UI/SearchIcon';
-// import { WithSpinner } from '@app/components/WithSpinnerHOC/WithSpinnerHoc';
 import { ApiResp, RepoItem } from '@store/GitHubStore/types';
 
+import RepositoryListWithSpinner from './components/Repository-list-WithSpinner/RepositoryListWithSpinner';
 import styles from './ReposSearchPage.module.css';
 
 const ReposSearchPage: FC = () => {
@@ -24,11 +22,9 @@ const ReposSearchPage: FC = () => {
           org: EXAMPLE_ORGANIZATION,
         });
         setData(data);
-        console.log(data);
         setIseFetching(false);
       } catch (error) {
         setIseFetching(false);
-        console.log(error);
       }
     };
     fetchData();
@@ -42,12 +38,8 @@ const ReposSearchPage: FC = () => {
     setcurrentInputState(e.target.value);
   };
 
-  const handleClickRepoCard = (e: React.MouseEvent<HTMLDivElement>): void => {
-    console.log(e.target);
-  };
-  // const RepositoryListWithSpinner = WithSpinner(
-  //   <RepositoryList data={data} handleClick={handleClickRepoCard} />
-  // );
+  const handleClickRepoCard = (e: React.MouseEvent<HTMLDivElement>): void => {};
+
   return (
     <div className={styles['list-of-repos']}>
       <SearchForm>
@@ -62,7 +54,11 @@ const ReposSearchPage: FC = () => {
         </SearchButton>
       </SearchForm>
 
-      <RepositoryList handleClick={handleClickRepoCard} data={data} />
+      <RepositoryListWithSpinner
+        isLoading={isFetching}
+        handleClick={handleClickRepoCard}
+        data={data}
+      />
     </div>
   );
 };
