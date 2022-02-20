@@ -25,10 +25,27 @@ interface Owner {
   id: string;
   url: 'string';
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type ApiResp<T = []> = any;
 
+export interface GetReposBranchesByOwnerParams {
+  readonly owner: string;
+  readonly repo: string;
+  readonly protected?: boolean;
+  readonly per_page: number;
+  readonly page: number;
+}
+export interface BranchesItem {
+  name: string;
+  commit: object;
+  protected: boolean;
+  protection_url: string;
+}
 export interface IGitHubStore {
   getOrganizationReposList: (
     params: GetOrganizationReposListParams
   ) => Promise<ApiResp<RepoItem[]>>;
+  getOwnerRepoBranchesList: (
+    params: GetReposBranchesByOwnerParams
+  ) => Promise<ApiResp<BranchesItem[]>>;
 }
