@@ -7,7 +7,7 @@ import SearchInput from '@app/components/UI/Search-input';
 import SearchIcon from '@app/components/UI/SearchIcon';
 import { ApiResp, RepoItem } from '@store/GitHubStore/types';
 
-import RepositoryListWithSpinner from './components/Repository-list-WithSpinner';
+import RepositoryListWithSpinner from './components/RepositorylistWithSpinner';
 import styles from './ReposSearchPage.module.css';
 
 const ReposSearchPage: FC = () => {
@@ -30,10 +30,7 @@ const ReposSearchPage: FC = () => {
     fetchData();
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    setIsFetching(true);
-    setTimeout(() => setIsFetching(false), 3000);
-  };
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {};
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setcurrentInputState(e.target.value);
   };

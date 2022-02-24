@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import React from 'react';
 
 import Avatar from '@app/components/UI/Avatar';
 import { parseDate } from '@utilz/parseDateForReposCards';
@@ -43,4 +44,4 @@ const GitRepoCard: FC<GitRepoCardProps> = ({
   );
 };
 
-export default GitRepoCard;
+export default React.memo(GitRepoCard);
