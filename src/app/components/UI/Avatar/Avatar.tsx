@@ -1,8 +1,14 @@
+import React from 'react';
 import { FC } from 'react';
 
 import styles from './Avatar.module.css';
 import { AvatarProps } from './types';
-const Avatar: FC<AvatarProps> = ({ src, alt, letter, cssClass }) => {
+const Avatar: FC<AvatarProps> = ({
+  src,
+  alt,
+  letter,
+  cssClass,
+}: AvatarProps) => {
   return (
     <div className={cssClass}>
       {src !== '' && src ? (
@@ -22,4 +28,4 @@ const Avatar: FC<AvatarProps> = ({ src, alt, letter, cssClass }) => {
   );
 };
 
-export default Avatar;
+export default React.memo(Avatar);

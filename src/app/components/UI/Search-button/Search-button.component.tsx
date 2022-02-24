@@ -1,3 +1,4 @@
+import React from 'react';
 import { FC } from 'react';
 
 import styles from './Search-button.module.css';
@@ -19,4 +20,4 @@ const SearchButton: FC<SearchButtonPros> = ({
   );
 };
 
-export default SearchButton;
+export default React.memo(SearchButton);

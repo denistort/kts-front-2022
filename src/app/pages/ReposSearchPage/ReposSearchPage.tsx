@@ -7,32 +7,32 @@ import SearchInput from '@app/components/UI/Search-input';
 import SearchIcon from '@app/components/UI/SearchIcon';
 import { ApiResp, RepoItem } from '@store/GitHubStore/types';
 
-import RepositoryListWithSpinner from './components/Repository-list-WithSpinner/RepositoryListWithSpinner';
+import RepositoryListWithSpinner from './components/Repository-list-WithSpinner';
 import styles from './ReposSearchPage.module.css';
 
 const ReposSearchPage: FC = () => {
   const [data, setData] = useState<ApiResp<RepoItem[]> | null>(null);
-  const [isFetching, setIseFetching] = useState<boolean>(false);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
   const [currentInputState, setcurrentInputState] = useState<string>('');
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIseFetching(true);
+        setIsFetching(true);
         const data = await gitHubStore.getOrganizationReposList({
           org: EXAMPLE_ORGANIZATION,
         });
         setData(data);
-        setIseFetching(false);
-      } catch (error) {
-        setIseFetching(false);
+      } catch (er) {
+      } finally {
+        setIsFetching(false);
       }
     };
     fetchData();
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    setIseFetching(true);
-    setTimeout(() => setIseFetching(false), 3000);
+    setIsFetching(true);
+    setTimeout(() => setIsFetching(false), 3000);
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setcurrentInputState(e.target.value);
